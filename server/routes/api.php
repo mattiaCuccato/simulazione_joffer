@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/list", [OfferController::class,"view_offers"]);
+Route::get("/list/ral-desc", [OfferController::class,"view_offers_ral_desc"]);
+Route::get("/list/ral-asc", [OfferController::class,"view_offers_ral_asc"]);
 Route::get("/detail/{id}", [OfferController::class,"detail_offer"]);
 Route::post("/insert", [OfferController::class,"insert_offer"]);
 Route::put("/update/{id}", [OfferController::class,"update_offer"]);

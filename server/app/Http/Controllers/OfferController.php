@@ -13,6 +13,16 @@ class OfferController extends Controller
         return Offer::all();
     }
 
+    //VIEW ALL OFFERS WITH DESC RAL
+    public function view_offers_ral_desc(){
+        return Offer::orderBy('ral', 'DESC')->get();
+    }
+
+    //VIEW ALL OFFERS WITH ASC RAL
+    public function view_offers_ral_asc(){
+        return Offer::orderBy('ral', 'ASC')->get();
+    }
+
     //DETAIL OFFER
     public function detail_offer($id){
         return Offer::find($id);

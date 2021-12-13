@@ -37,7 +37,7 @@ export default {
         },
         detailOffer(offer){
             this.$router.push('/detail/'+offer.id)
-        }
+        },
     }
 }
 </script>
