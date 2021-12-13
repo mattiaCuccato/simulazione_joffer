@@ -27,7 +27,13 @@
                     </div>
                 </div>
                 <div class="flex flex-row mt-10" v-if="isEdit==false">
-                    <button @click="saveOffer(newOffer)" :disabled="!isFormComplete" class="bg-white hover:bg-yellow-200 cursor-pointer px-3 py-2 rounded-md"> Save </button>
+                    <button @click="confCreate()" :disabled="!isFormComplete" class="bg-white hover:bg-yellow-200 cursor-pointer px-3 py-2 rounded-md"> Save </button>
+                </div>
+                <div class="flex mt-5 font-bold" v-if="confC == true">
+                    <div class='flex-col bg-white px-2 py-1'>
+                        <span class='flex flex-row justify-center'>Are you sure ?</span>
+                        <button class='flex flex-row justify-center bg-black text-white px-2 py-1 mt-2' @click='saveOffer(newOffer)'>Save</button>
+                    </div>
                 </div>
                 <div class="flex flex-row mt-10" v-if="isEdit==true">
                     <button @click="confUpdate()" :disabled="!isFormComplete" class="bg-white hover:bg-yellow-200 cursor-pointer px-3 py-2 rounded-md"> Save Update </button>
@@ -35,7 +41,7 @@
                 <div class="flex mt-5 font-bold" v-if="conf == true">
                     <div class='flex-col bg-white px-2 py-1'>
                         <span class='flex flex-row justify-center'>Are you sure ?</span>
-                        <button class='flex flex-row justify-center bg-black text-white px-2 py-1 mt-2' @click='saveOffer()'>UPDATE</button>
+                        <button class='flex flex-row justify-center bg-black text-white px-2 py-1 mt-2' @click='saveOffer(newOffer)'>UPDATE</button>
                     </div>
                 </div>
             </div>
@@ -50,6 +56,7 @@ export default {
         return{
             isEdit:false,
             conf:false,
+            confC:false,
             newOffer:{
                 program_language:"",
                 icon:"",
@@ -175,6 +182,9 @@ export default {
         },
         confUpdate(){
             this.conf = true;
+        },
+        confCreate(){
+            this.confC = true;
         }
     },
     computed:{
